@@ -564,8 +564,8 @@ def main():
     st.markdown("### 🔑 Anthropic API Key")
     api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
     if not api_key:
-    st.error("API key not configured. Contact the app owner.")
-    st.stop()
+        st.error("API key not configured. Contact the app owner.")
+        st.stop()
 
     st.divider()
 
