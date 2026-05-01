@@ -562,18 +562,10 @@ def main():
 
     # ── API KEY ──
     st.markdown("### 🔑 Anthropic API Key")
-    api_key = st.text_input(
-        "Your Anthropic API key",
-        type="password",
-        placeholder="sk-ant-...",
-        help="Get yours at console.anthropic.com — stays in your browser session only"
-    )
-    if not api_key:
-        st.markdown(
-            '<div class="info-box">Get a free API key at <strong>console.anthropic.com</strong> → '
-            'API Keys → Create Key. Add $5 credits — enough for ~300 analyses.</div>',
-            unsafe_allow_html=True
-        )
+    api_key = st.secrets.get("ANTHROPIC_API_KEY", "")
+if not api_key:
+    st.error("API key not configured. Contact the app owner.")
+    st.stop()
 
     st.divider()
 
