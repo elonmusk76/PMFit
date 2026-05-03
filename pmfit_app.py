@@ -497,7 +497,7 @@ One thing that is uniquely true about this idea in this specific market that mos
 def call_anthropic(idea: str, location_name: str, location_context: str, api_key: str) -> str:
     client = anthropic.Anthropic(api_key=api_key)
     message = client.messages.create(
-        model="claude-sonnet-4-20250514",
+        model="claude-sonnet-4-5",
         max_tokens=1400,
         messages=[{
             "role": "user",
