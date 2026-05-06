@@ -708,7 +708,7 @@ def main():
 
     st.divider()
 
-    email = st.text_input("Get your analysis + updates via email (optional)")
+    email = st.text_input("Get your analysis + updates via email ")
 
     if st.button("Analyze PMF →", use_container_width=True):
         if not idea.strip():
