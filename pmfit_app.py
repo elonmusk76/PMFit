@@ -708,6 +708,8 @@ def main():
 
     st.divider()
 
+    email = st.text_input("Get your analysis + updates via email (optional)")
+
     if st.button("Analyze PMF →", use_container_width=True):
         if not idea.strip():
             st.error("Describe your idea first.")
