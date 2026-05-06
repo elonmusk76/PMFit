@@ -1,6 +1,12 @@
 import streamlit as st
 import anthropic
 import re
+import csv
+
+def save_email(email, idea):
+    with open("emails.csv", "a", newline="", encoding="utf-8") as file:
+        writer = csv.writer(file)
+        writer.writerow([email, idea])
 
 st.set_page_config(
     page_title="PMFit AI",
@@ -717,6 +723,8 @@ def main():
         if loc_data["name"] == "Custom" and not custom_context.strip():
             st.error("Describe your market context.")
             return
+        if email:
+            save_email(email, idea)
 
         with st.spinner(f"Analyzing for {loc_data['name']}..."):
             try:
